@@ -13,10 +13,13 @@ struct day6View: View {
     }
 }
 
+
+
 struct Day6{
     
-    static func doink(){
-        print("foobar")
+    struct Race{
+        var time: Double = 0
+        var distance: Double = 0
     }
     
     static func part1(_ input: [Race]) -> Int{
@@ -34,10 +37,6 @@ struct Day6{
         return 0
     }
     
-    struct Race{
-        var time: Double = 0
-        var distance: Double = 0
-    }
     
     static func getData(_ fileName: String) -> [Race]{
         var returnData:[Race] = []
@@ -56,10 +55,12 @@ struct Day6{
         return returnData
     }
     
+    
     static func getNumbers(_ input: String) -> [Int]{
         let components = (input.components(separatedBy: " "))
         return components.compactMap{ Int($0)}
     }
+    
 }
 
 

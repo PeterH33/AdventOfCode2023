@@ -33,11 +33,16 @@ final class AdventOfCodeTests: XCTestCase {
         print("Part 2 solution: ", Day5.part2(seedRanges: seedRanges, testData: testData))
     }
     
-    func testDay6() throws{
+    func DISABLEDtestDay6() throws{
         let data = Day6.getData("aoc6")
         print(Day6.part1(data))
         let data2 = Day6.Race(time: 38947970, distance: 241154910741091)
         print(Day6.part1([data2]))
+    }
+    
+    func testDay7() throws{
+        let cards = Day7.getCards("aoc7TEST")
+        print(cards)
     }
 
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Day3View: View {
     let data = (Day3.getLines())
-    var parts:[Part] {
+    var parts:[Day3.Part] {
         Day3.getParts(dataSet: data)
     }
     var body: some View {
@@ -20,17 +20,20 @@ struct Day3View: View {
     }
 }
 
-struct Part: Equatable{
-    static func == (lhs: Part, rhs: Part) -> Bool {
-        lhs.value == rhs.value && lhs.symbolIndex! == rhs.symbolIndex!
-    }
-    
-    var value: Int
-    var symbol: Character?
-    var symbolIndex: (Int, Int)?
-}
+
 
 struct Day3{
+    
+    struct Part: Equatable{
+        static func == (lhs: Part, rhs: Part) -> Bool {
+            lhs.value == rhs.value && lhs.symbolIndex! == rhs.symbolIndex!
+        }
+        
+        var value: Int
+        var symbol: Character?
+        var symbolIndex: (Int, Int)?
+    }
+    
     
     static func findGearRatioSum(parts: [Part]) -> Int{
         var returnSum = 0
@@ -47,6 +50,7 @@ struct Day3{
         return returnSum / 2
     }
     
+    
     static func sumPartsNumbers(parts: [Part]) -> Int{
         var returnInt: Int = 0
         for part in parts{
@@ -56,6 +60,7 @@ struct Day3{
         }
         return returnInt
     }
+    
     
     static func getParts(dataSet: [[Character]]) -> [Part]{
         var returnValues: [Part] = []
@@ -92,6 +97,7 @@ struct Day3{
         }
         return returnValues
     }
+    
     
     static func checkForSymbol(dataSet: [[Character]], startI:Int, startJ:Int, endI: Int, endJ:Int) -> (Character,(Int,Int))?{
 //        var returnCharacter: Character?

@@ -17,19 +17,20 @@ struct day2View: View {
 
 
 
-struct Game{
-    var gameID: Int = 0
-    var rounds: [Round] = []
-}
-
-struct Round{
-    var red: Int = 0
-    var green: Int = 0
-    var blue: Int = 0
-}
-
 
 struct Day2{
+    
+    struct Game{
+        var gameID: Int = 0
+        var rounds: [Round] = []
+    }
+
+    struct Round{
+        var red: Int = 0
+        var green: Int = 0
+        var blue: Int = 0
+    }
+
     
     var games: [Game]
     

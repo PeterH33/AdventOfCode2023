@@ -13,14 +13,17 @@ struct day4View: View {
     }
 }
 
-struct Card{
-    var cardNumber:Int
-    var winningNumbers: [Int]
-    var playerNumbers: [Int]
-    var numberOfCopies: Int = 1
-}
+
 
 struct Day4{
+    
+    struct Card{
+        var cardNumber:Int
+        var winningNumbers: [Int]
+        var playerNumbers: [Int]
+        var numberOfCopies: Int = 1
+    }
+    
     
     static func countCards() -> Int{
         var cards = getCards(fileName: "aoc4")
@@ -36,20 +39,15 @@ struct Day4{
             }
             
             for nextCardsIndex in card.cardNumber ..< card.cardNumber + matchingNumberCount{
-//                print("nextcardIndex: \(nextCardsIndex)")
                 if cards.indices.contains(nextCardsIndex){
                     cards[nextCardsIndex].numberOfCopies += cards[cardIndex].numberOfCopies
-//                    print("cards[nextCardsIndex.number of copies: \(cards[nextCardsIndex].numberOfCopies)")
                 }
             }
             
             returnCount += cards[cardIndex].numberOfCopies
-//            print("returnCount: \(returnCount)")
         }
         return returnCount
     }
-    
-     
     
     
     static func countPoints(cards: [Card]) -> Int{
@@ -65,6 +63,7 @@ struct Day4{
         }
         return returnTotal
     }
+    
     
     static func getCards(fileName: String) -> [Card]{
         var returnCards: [Card] = []
