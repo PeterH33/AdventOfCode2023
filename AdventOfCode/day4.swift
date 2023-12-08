@@ -30,7 +30,7 @@ struct Day4{
         var returnCount = 0
         
         for (cardIndex, card) in cards.enumerated(){
-            print("Looking at card: \(card.cardNumber) copies: \(cards[cardIndex].numberOfCopies)")
+//            print("Looking at card: \(card.cardNumber) copies: \(cards[cardIndex].numberOfCopies)")
             var matchingNumberCount = 0
             for playerNumber in card.playerNumbers {
                 if card.winningNumbers.contains(playerNumber){
