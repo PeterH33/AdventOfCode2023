@@ -14,6 +14,10 @@
 		4C13F2B42B221E7500F1FCA2 /* day7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13F2B32B221E7500F1FCA2 /* day7.swift */; };
 		4C13F2B72B22708F00F1FCA2 /* aoc7.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C13F2B52B22708F00F1FCA2 /* aoc7.txt */; };
 		4C13F2B82B22708F00F1FCA2 /* aoc7TEST.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C13F2B62B22708F00F1FCA2 /* aoc7TEST.txt */; };
+		4CC4B9F12B23A8F00071169C /* day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B9F02B23A8F00071169C /* day8.swift */; };
+		4CC4B9F42B23A9E80071169C /* aoc8TEST1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4B9F22B23A9E80071169C /* aoc8TEST1.txt */; };
+		4CC4B9F52B23A9E80071169C /* aoc8TEST2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4B9F32B23A9E80071169C /* aoc8TEST2.txt */; };
+		4CC4B9F72B23A9F00071169C /* aoc8.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4B9F62B23A9F00071169C /* aoc8.txt */; };
 		4CD6A2F22B1C295700F853BE /* day2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6A2F12B1C295700F853BE /* day2.swift */; };
 		4CD6A2F42B1C2E6600F853BE /* aoc2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4CD6A2F32B1C2E6600F853BE /* aoc2.txt */; };
 		4CD6A2FE2B1CFBC100F853BE /* AdventOfCodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD6A2FD2B1CFBC100F853BE /* AdventOfCodeTests.swift */; };
@@ -50,6 +54,10 @@
 		4C13F2B32B221E7500F1FCA2 /* day7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day7.swift; sourceTree = "<group>"; };
 		4C13F2B52B22708F00F1FCA2 /* aoc7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc7.txt; sourceTree = "<group>"; };
 		4C13F2B62B22708F00F1FCA2 /* aoc7TEST.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc7TEST.txt; sourceTree = "<group>"; };
+		4CC4B9F02B23A8F00071169C /* day8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day8.swift; sourceTree = "<group>"; };
+		4CC4B9F22B23A9E80071169C /* aoc8TEST1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc8TEST1.txt; sourceTree = "<group>"; };
+		4CC4B9F32B23A9E80071169C /* aoc8TEST2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc8TEST2.txt; sourceTree = "<group>"; };
+		4CC4B9F62B23A9F00071169C /* aoc8.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc8.txt; sourceTree = "<group>"; };
 		4CD6A2F12B1C295700F853BE /* day2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = day2.swift; sourceTree = "<group>"; };
 		4CD6A2F32B1C2E6600F853BE /* aoc2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = aoc2.txt; sourceTree = "<group>"; };
 		4CD6A2FB2B1CFBC100F853BE /* AdventOfCodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdventOfCodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +133,7 @@
 				4CFB40B42B1F574F00F6A54B /* day5.swift */,
 				4CFB40BA2B2105AC00F6A54B /* day6.swift */,
 				4C13F2B32B221E7500F1FCA2 /* day7.swift */,
+				4CC4B9F02B23A8F00071169C /* day8.swift */,
 				4CFBFB742B1BEBAC000B7D10 /* ContentView.swift */,
 				4CFBFB762B1BEBAD000B7D10 /* Assets.xcassets */,
 				4CD6A3062B1D58C700F853BE /* aoc3.txt */,
@@ -138,6 +147,9 @@
 				4C13F2B12B220EA200F1FCA2 /* aoc6TEST.txt */,
 				4C13F2B52B22708F00F1FCA2 /* aoc7.txt */,
 				4C13F2B62B22708F00F1FCA2 /* aoc7TEST.txt */,
+				4CC4B9F62B23A9F00071169C /* aoc8.txt */,
+				4CC4B9F22B23A9E80071169C /* aoc8TEST1.txt */,
+				4CC4B9F32B23A9E80071169C /* aoc8TEST2.txt */,
 				4CFBFB782B1BEBAD000B7D10 /* Preview Content */,
 			);
 			path = AdventOfCode;
@@ -240,8 +252,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFBFB7A2B1BEBAD000B7D10 /* Preview Assets.xcassets in Resources */,
+				4CC4B9F72B23A9F00071169C /* aoc8.txt in Resources */,
+				4CC4B9F52B23A9E80071169C /* aoc8TEST2.txt in Resources */,
 				4C0D14512B1E381D0098C46B /* aoc4.txt in Resources */,
 				4CFB40B72B1F58A900F6A54B /* aoc5TEST.txt in Resources */,
+				4CC4B9F42B23A9E80071169C /* aoc8TEST1.txt in Resources */,
 				4C13F2B22B220EA200F1FCA2 /* aoc6TEST.txt in Resources */,
 				4C13F2B72B22708F00F1FCA2 /* aoc7.txt in Resources */,
 				4CFBFB812B1BED31000B7D10 /* aoc1.txt in Resources */,
@@ -273,6 +288,7 @@
 				4CFBFB752B1BEBAC000B7D10 /* ContentView.swift in Sources */,
 				4CFB40BC2B2105D400F6A54B /* day6.swift in Sources */,
 				4C0D144F2B1E36E30098C46B /* day4.swift in Sources */,
+				4CC4B9F12B23A8F00071169C /* day8.swift in Sources */,
 				4CD6A2F22B1C295700F853BE /* day2.swift in Sources */,
 				4CFBFB832B1BED57000B7D10 /* day1.swift in Sources */,
 				4CD6A3052B1D57ED00F853BE /* day3.swift in Sources */,
