@@ -14,3 +14,5 @@ Swift / SwiftUI repo of solutions while I play around with Advent of Code 2023.
 [Day 6](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day6.swift) Solved via math & quadratic formula
 
 [Day 7](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day7.swift) Solved via comparable protocol
+
+[Day 8](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day8.swift) In progress
