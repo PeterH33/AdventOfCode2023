@@ -10,13 +10,6 @@ import XCTest
 
 final class AdventOfCodeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
 
     func DISABLEDtestDay4() throws {
 //        print(Day2.parseGames(lines: Day2.getLines()))
@@ -42,7 +35,13 @@ final class AdventOfCodeTests: XCTestCase {
     
     func testDay7() throws{
         let cards = Day7.getCards("aoc7")
-        print("Part 1: ", Day7.part1(cards: cards))
+        let cardsJackWild = Day7.getCards("aoc7", jackIsWild: true)
+        let part1 = Day7.getTotalWinnings(cards: cards)
+        print("Day 7 Part 1: ", part1)
+        XCTAssertEqual(part1, 253933213, "Part 1 should be 253933213, currently: \(part1)")
+        let part2 = Day7.getTotalWinnings(cards: cardsJackWild)
+        print("Day 7 part 2: ", part2)
+        XCTAssertEqual(part2, 253473930, "Part2 should be 253473930, currently: \(part2)")
     }
 
 }

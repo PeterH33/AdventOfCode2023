@@ -15,14 +15,50 @@ struct day7View: View {
 
 struct Day7{
     
-    
-    static func part1(cards: [Card]) -> Int{
+    static func getTotalWinnings(cards: [Card]) -> Int{
         var returnValue = 0
         let sortedCards = cards.sorted()
         for (index, card) in sortedCards.enumerated(){
             returnValue += card.bid * (index + 1)
+            //            print(" Hand: ", card.hand, " Type: ", card.handType, " Hand Value: ", card.handValue)
         }
         return returnValue
+    }
+    
+    
+    static func convertHandTypeJackWild(hand: String, startingHandType: HandType) -> HandType{
+        if hand.contains("J"){
+            switch startingHandType{
+            case .fiveOfAKind:
+                return .fiveOfAKind
+            case .fourOfAKind:
+                return .fiveOfAKind
+            case .fullHouse:
+                return .fiveOfAKind
+            case .threeOfAKind:
+                return .fourOfAKind
+            case .twoPair:
+                var count = 0
+                for thisLetter in hand{
+                    if thisLetter == "J"{
+                        count += 1
+                    }
+                }
+                if count == 1{
+                    return .fullHouse
+                } else {
+                    return .fourOfAKind
+                }
+            case .onePair:
+                return .threeOfAKind
+            case .highCard:
+                return .onePair
+            case .errorHand:
+                return .errorHand
+            }
+        } else {
+            return startingHandType
+        }
     }
     
     
@@ -41,6 +77,23 @@ struct Day7{
         "3" : 11,
         "2" : 10
     ]
+    
+
+    static let cardOrderJackWild: [String : Int] = [
+        "A" : 22,
+        "K" : 21,
+        "Q" : 20,
+        "J" : 10,
+        "T" : 19,
+        "9" : 18,
+        "8" : 17,
+        "7" : 16,
+        "6" : 15,
+        "5" : 14,
+        "4" : 13,
+        "3" : 12,
+        "2" : 11
+    ]
 
     
     struct Card: Comparable{
@@ -48,14 +101,16 @@ struct Day7{
             (lhs.handType.rawValue, rhs.handValue) > (rhs.handType.rawValue, lhs.handValue)
         }
         
-        var hand:String = ""
+        var hand: String = ""
         var handType: HandType
-        var bid:Int = 0
+        var bid: Int = 0
+        var jackIsWild: Bool = false
+        
         var handValue: Int  {
             var valueString = ""
             for thisLetter in hand{
                 let stringLetter = String(thisLetter)
-                valueString.append(String(cardOrder[stringLetter]!))
+                valueString.append(String( jackIsWild ? cardOrderJackWild[stringLetter]! : cardOrder[stringLetter]!  ))
             }
             return Int(valueString)!
         }
@@ -108,7 +163,7 @@ struct Day7{
     }
     
     
-    static func getCards(_ fileName:String) -> [Card]{
+    static func getCards(_ fileName:String, jackIsWild: Bool = false) -> [Card]{
         var returnCards:[Card] = []
         if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "txt"){
             if let fileContents = try? String(contentsOf: fileURL){
@@ -116,13 +171,22 @@ struct Day7{
                 for line in lines{
                     let handAndBid = line.components(separatedBy: " ")
                     if !handAndBid.isEmpty && handAndBid != [""]{
-                        returnCards.append(Card(hand: handAndBid[0], handType: getHandType(handAndBid[0]), bid: Int(handAndBid[1])!))
+                        let handType = jackIsWild ? convertHandTypeJackWild(hand: handAndBid[0], startingHandType: getHandType(handAndBid[0])) : getHandType(handAndBid[0])
+                        returnCards.append(
+                            Card(
+                                hand: handAndBid[0],
+                                handType: handType,
+                                bid: Int(handAndBid[1])!,
+                                jackIsWild: jackIsWild
+                            )
+                        )
                     }
                 }
             }
         }
         return returnCards
     }
+    
 }
 
 
