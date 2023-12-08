@@ -16,22 +16,51 @@ struct day7View: View {
 struct Day7{
     
     
+    static func part1(cards: [Card]) -> Int{
+        var returnValue = 0
+        let sortedCards = cards.sorted()
+        for (index, card) in sortedCards.enumerated(){
+            returnValue += card.bid * (index + 1)
+        }
+        return returnValue
+    }
     
-//    enum cardOrder: Int  {
-//        case A = 0
-//        case K = 1
-//        case Q = 2
-//        case J = 3
-//        case T = 4
-//        case "9" = 5
-//        
-//        //        "K", "Q", "J", "T", "9", "8", "7", "6", "5", "4", "3", "2"}
-//    }
-    struct Card{
+    
+    static let cardOrder: [String : Int] = [
+        "A" : 22,
+        "K" : 21,
+        "Q" : 20,
+        "J" : 19,
+        "T" : 18,
+        "9" : 17,
+        "8" : 16,
+        "7" : 15,
+        "6" : 14,
+        "5" : 13,
+        "4" : 12,
+        "3" : 11,
+        "2" : 10
+    ]
+
+    
+    struct Card: Comparable{
+        static func < (lhs: Day7.Card, rhs: Day7.Card) -> Bool {
+            (lhs.handType.rawValue, rhs.handValue) > (rhs.handType.rawValue, lhs.handValue)
+        }
+        
         var hand:String = ""
         var handType: HandType
         var bid:Int = 0
+        var handValue: Int  {
+            var valueString = ""
+            for thisLetter in hand{
+                let stringLetter = String(thisLetter)
+                valueString.append(String(cardOrder[stringLetter]!))
+            }
+            return Int(valueString)!
+        }
     }
+    
     
     enum HandType: Int{
         case fiveOfAKind = 0
@@ -43,6 +72,7 @@ struct Day7{
         case highCard = 6
         case errorHand = 69
     }
+    
     
     static func getHandType(_ inputString: String) -> HandType{
         var occurrenceDict: [String:Int] = [:]
@@ -57,11 +87,17 @@ struct Day7{
         case 1:
             return .fiveOfAKind
         case 2:
-            _ = 1
-            //can be 4ofakind or fullhouse
+            if occurrenceDict.values.contains(4){
+                return .fourOfAKind
+            } else {
+                return .fullHouse
+            }
         case 3:
-            _ = 1
-            //can be three of a kind or 2pair
+            if occurrenceDict.values.contains(3){
+                return .threeOfAKind
+            } else {
+                return .twoPair
+            }
         case 4:
             return .onePair
         case 5:
@@ -69,17 +105,8 @@ struct Day7{
         default:
             return .errorHand
         }
-        if occurrenceDict.count == 1{
-            
-        } else if occurrenceDict.count == 2{
-            // can be 4ofaKind or Full house
-        } else if occurrenceDict.count == 3{
-            
-        }
-        
-        
-        return .errorHand
     }
+    
     
     static func getCards(_ fileName:String) -> [Card]{
         var returnCards:[Card] = []
@@ -89,19 +116,15 @@ struct Day7{
                 for line in lines{
                     let handAndBid = line.components(separatedBy: " ")
                     if !handAndBid.isEmpty && handAndBid != [""]{
-                        //determine hand type
-                        print("Hand and Bid: ", handAndBid)
                         returnCards.append(Card(hand: handAndBid[0], handType: getHandType(handAndBid[0]), bid: Int(handAndBid[1])!))
-                        print(returnCards)
                     }
                 }
             }
         }
         return returnCards
     }
-    
-    
 }
+
 
 #Preview {
     day7View()

@@ -41,8 +41,8 @@ final class AdventOfCodeTests: XCTestCase {
     }
     
     func testDay7() throws{
-        let cards = Day7.getCards("aoc7TEST")
-        print(cards)
+        let cards = Day7.getCards("aoc7")
+        print("Part 1: ", Day7.part1(cards: cards))
     }
 
 }
