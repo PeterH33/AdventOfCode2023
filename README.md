@@ -15,4 +15,6 @@ Swift / SwiftUI repo of solutions while I play around with Advent of Code 2023.
 
 [Day 7](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day7.swift) Solved via comparable protocol
 
-[Day 8](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day8.swift) In progress
+[Day 8](https://github.com/PeterH33/AdventOfCode2023/blob/main/AdventOfCode/day8.swift) In progress (Lowest common multiple for part2 solution)
+
+Well I made it to day 8 before life took over again and I had to deal with shipping apps and family. Happy holidays all!
